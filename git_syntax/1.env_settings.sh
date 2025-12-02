@@ -28,9 +28,14 @@ git init
 git remote add origin 원격지주소 
 
 # 다른 repo에서 clone을 받아 나의 repo로 올리기
-# 1. 커밋이력 그대로 가져가기
-git remote set-url origin 레포주소  # 원격지 주소 변경
-
+# 1. 커밋이력 그대로 가져가기  .. .git폴더 남겨두기
+git clone 남의레포주소
+git remote set-url origin 내레포주소  # 원격지 주소 변경
+git branch  # 브랜치명 main 있는지 확인
+git push origin main  # main 브랜치를 원격지에 업로드
 # 2. 커밋이력 없이 가져가기
-
+git clone 남의레포주소
+.git 폴더 삭제
+git remote add oring 원격지주소
 git checkout -b main # main 브랜치 생성 및 변경
+# git add, git commit, git push 작업 진행
