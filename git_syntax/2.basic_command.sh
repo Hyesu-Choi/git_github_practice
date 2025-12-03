@@ -26,3 +26,12 @@ git push origin 브랜치명
 # 충돌발생시 충돌무시하고, 로컬기준의 코드를 원격에 덮어쓰기(절대 사용하지 말것)
 git push origin 브랜치명 --force
 
+# add, commit 한번에 처리.
+git commit -am "커밋메시지"
+
+# 특정 commit ID로의 전환
+git checkout 특정커밋ID
+# 특정 브랜치로의 전환
+git checkout 브랜치명
+
+
