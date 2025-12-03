@@ -63,3 +63,30 @@ git stash list
 # 저장한 목록 전체 삭제
 git stash clear
 
+# 가장 최신의 commitID에 tag가 명시
+git tag 태그버전명(v1.10.4)
+
+# 원격 repo에 해당 tag의 release 생성
+git push origin 태그버전명
+
+# 브랜치 생성   // 현재 있는 브랜치, 커밋아이디 기준으로 브랜치가 생성됨됨
+# 현재 checkout 되어있는 브랜치를 기준으로 새로운 브랜치 생성
+git branch 브랜치명
+git branch feat/member_list
+
+# 브랜치 목록 조회
+git branch
+
+# 특정 브랜치로 전환
+git checkout 브랜치명
+
+# 브랜치 생성과 전환을 동시
+git checkout -b 브랜치명
+
+# 로컬 브랜치 삭제(원격은 별도로 삭제)
+git branch -D 브랜치명
+
+
+
+
+
