@@ -31,7 +31,7 @@ git commit -am "커밋메시지"
 
 # 특정 commit ID로의 전환
 git checkout 특정커밋ID
-# 특정 브랜치로의 전환
+# 특정 브랜치로의 전환  .. 다시 원래의 commit으로 돌아오기
 git checkout 브랜치명
 
 
