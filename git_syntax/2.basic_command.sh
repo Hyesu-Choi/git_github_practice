@@ -51,5 +51,15 @@ git reset head^
 # 이미 push된 commit 사항을 되돌리는 새로운 commit 생성(기존의 commit이 지워지는건 아님)
 git revert commitId
 
+# 작업중인 사항을 임시저장
+git stash
 
+# 임시저장한 작업 사항을 다시 적용
+git stash pop
+
+# 저장한 작업 목록 조회
+git stash list
+
+# 저장한 목록 전체 삭제
+git stash clear
 
