@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js function practice</title>
+  </head>
+  <body>
+    <select id="calculator">
+      <option value="plus">덧셈</option>
+      <option value="minus">뺄셈</option>
+      <option value="multiply">곱셉</option>
+      <option value="divide">나눗셈</option>
+    </select>
+    <input type="text" id="num1" />
+    <input type="text" id="num2" />
+    <button onclick="calculate()">실행</button>
+    <p id="result">결과값</p>
+
+    <script>
+      function calculate() {
+        let operator = document.getElementById("calculator").value;
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+        let result = 0;
+
+        if (operator == "plus") {
+          result = num1 + num2;
+        } else if (operator == "minus") {
+          result = num1 - num2;
+        } else if (operator == "multiply") {
+          result = num1 * num2;
+        } else {
+          result = num1 / num2;
+        }
+        document.getElementById("result").innerText = result;
+      }
+    </script>
+  </body>
+</html>

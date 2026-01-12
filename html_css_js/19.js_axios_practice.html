@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hs axios practice</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      async function fetchData() {
+        const result = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts/1"
+        );
+        console.log(result.data);
+      }
+      async function fetchListData() {
+        const result = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        console.log(result.data);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="fetchData()">단건 데이터 조회</button>
+    <button onclick="fetchListData()">리스트데이터조회</button>
+  </body>
+</html>

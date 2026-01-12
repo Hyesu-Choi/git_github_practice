@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 상세조회</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <a href="../post/post_list.html" class="navbar-brand mx-auto"
+        >게시판 서비스</a
+      >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../author/author_list.html">회원목록</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../post/post_list.html">게시글목록</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../author/author_register.html">회원가입</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h3>게시글 상세조회</h3>
+      <input type="text" id="postId" />
+      <button onclick="fetchData()">조회</button>
+
+      <table class="table">
+        <tr>
+          <td>id</td>
+          <td id="id"></td>
+        </tr>
+        <tr>
+          <td>제목</td>
+          <td id="title"></td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <td id="body"></td>
+        </tr>
+        <tr>
+          <td>userid</td>
+          <td id="userId"></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      async function fetchData() {
+        const postId = document.getElementById("postId").value; //버튼 눌렀을때 값 가져와야하니까 로컬변수로 선언
+
+        const id = document.getElementById("id");
+        const title = document.getElementById("title");
+        const contents = document.getElementById("body");
+        const userid = document.getElementById("userId");
+
+        const result = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts/" + postId
+        );
+        id.innerText = result.data.id;
+        title.innerText = result.data.title;
+        contents.innerText = result.data.body;
+        userid.innerText = result.data.userId;
+      }
+    </script>
+  </body>
+</html>

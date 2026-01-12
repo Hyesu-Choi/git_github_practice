@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js function</title>
+    <script>
+      function basicFunciton() {
+        console.log("basicFunciton");
+      }
+
+      const variableFunction1 = function () {
+        console.log("variableFunction1");
+      };
+
+      const variableFunction2 = () => console.log("variableFunction2");
+
+      function returnFunction() {
+        console.log(makeString());
+        console.log(makeString2());
+        console.log(makeString3());
+      }
+      function makeString() {
+        return "hello js";
+      }
+      const makeString2 = () => {
+        return "hello js2";
+      };
+      const makeString3 = function () {
+        return "hello js3";
+      };
+      const paramFunction1 = (a, b) => {
+        console.log(a + b);
+      };
+      const paramFunction2 = (name = "홍길동") => {
+        console.log(name);
+      };
+      const paramFunction3 = (arr) => {
+        console.log(arr);
+      };
+      const exceptionFunction = () => {
+        // 프론트에서의 예외처리는 주로, 사용자에게 적절한 안내를 주거나, 코드의 중단을 막기 위해 사용용
+        try {
+          example();
+        } catch (error) {
+          alert("예외가 발생했습니다.");
+          console.log(error);
+        }
+        console.log("exceptionFunction");
+      };
+      const arrFunction1 = () => {
+        const arr = [
+          1,
+          2,
+          () => {
+            console.log("hello js");
+          },
+        ];
+        arr[2]();
+      };
+
+      function createPerson(name, email, age) {
+        return {
+          name: name,
+          email: email,
+          age: age,
+          test: () => {
+            return "이름:" + name + "이메일:" + email + "나이:" + age;
+          },
+        };
+      }
+      const objectFunction1 = () => {
+        const p1 = createPerson("hong", "hong@naver.com", 20);
+        console.log(p1.test());
+      };
+      const scrollEvent = () => {
+        window.addEventListener("scroll", () => console.log("scroll"));
+      };
+      const clickEvent = () => {
+        const b1 = document.getElementById("b1");
+        b1.addEventListener("click", () => console.log("click"));
+      };
+    </script>
+  </head>
+  <body>
+    <h2>js 함수호출</h2>
+    <button onclick=" basicFunciton()">기본함수호출</button>
+    <button onclick="variableFunction1()">변수함수호출1</button>
+    <button onclick="variableFunction2()">변수함수호출2</button>
+    <button onclick="returnFunction()">리턴이 있는 함수 호출</button>
+    <button onclick="paramFunction1(10,20)">매개변수가 있는 함수 호출1</button>
+    <button onclick="paramFunction2('kim')">매개변수가 있는 함수 호출2</button>
+    <button onclick="paramFunction3([1,2,3,4,5])">
+      매개변수가 있는 함수 호출3
+    </button>
+    <h2>js의 예외처리</h2>
+    <button onclick="exceptionFunction()">예외처리 함수호출</button>
+    <button onclick="arrFunction1()">배열 안에 있는 함수 호출</button>
+    <button onclick="objectFunction1()">객체 생성 함수 호출</button>
+    <h2>window 객체함수(내장함수)</h2>
+    <button onclick="window.location.reload()">화면새로고침</button>
+    <button onclick="window.location.href='https://www.naver.com'">
+      화면이동
+    </button>
+    <!-- 사용자가 html화면내에서 특정행위(event)를 했을 때 자동실행되는 함수 -->
+    <h2>event listener 함수 활용</h2>
+    <button onclick="scrollEvent()">scroll 이벤트 처리</button>
+    <button onclick="clickEvent()">click 이벤트 처리</button>
+    <button id="b1">팝업 버튼</button>
+  </body>
+</html>
+
+<!-- if(p1.age == null ) // null이랑 undefined까지 체크함 -->

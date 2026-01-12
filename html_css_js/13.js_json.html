@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js json</title>
+    <script>
+      function parsing1() {
+        const jsonData =
+          '{"id": 1, "name" : "hong", "email" : "hong@naver.com" }';
+        const obj1 = JSON.parse(jsonData);
+        console.log(obj1);
+      }
+      function stringify() {
+        const obj1 = { id: 1, name: "hong", email: "hong@naver.com" };
+        const jsonData = JSON.stringify(obj1);
+        console.log(obj1);
+        console.log(jsonData);
+      }
+      function parsing2() {
+        const jsonData =
+          '[{"id": 1, "name" : "hong", "email" : "hong@naver.com"}, {}, {}, {}]';
+      }
+      function parsing2() {
+        const jsonData =
+          '{"id": 1, "name" : "hong", "email" : "hong@naver.com" }';
+        const obj1 = JSON.parse(jsonData);
+        document.getElementById("id").innerText = obj1.id;
+        document.getElementById("name").innerText = obj1.name;
+        document.getElementById("email").innerText = obj1.email;
+      }
+      function addHtml() {
+        let div1 = document.getElementById("target");
+        div1.innerHTML += '<input type="text" />';
+      }
+      function parsing3() {
+        const jsonData =
+          '[{"id":1, "name":"hong", "email":"hong@naver.com"}, {"id":2, "name":"lee", "email":"lee@naver.com"}, {"id":3, "name":"kim", "email":"kim@naver.com"}]';
+        const obj = JSON.parse(jsonData); // json -> object
+        let tbodyId = document.getElementById("tbodyId");
+        for (let i = 0; i < obj.length; i++) {
+          const html =
+            "<tr><td>" +
+            obj[i].id +
+            "</td><td>" +
+            obj[i].name +
+            "</td><td>" +
+            obj[i].email +
+            "</td></tr>";
+          tbodyId.innerHTML += html;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>json 처리 기본</h2>
+    <button onclick="parsing1()">json 데이터 파싱</button>
+    <button onclick="stringify()">json 데이터 생성(직렬화)</button>
+    <h2>테이블 데이터</h2>
+    <button onclick="parsing2()">테이블 데이터 파싱</button>
+    <table border="1" style="border-collapse: collapse">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="id"></td>
+          <td id="name"></td>
+          <td id="email"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>html요소 동적으로 세팅</h2>
+    <button onclick="addHtml()">항목추가</button>
+    <div id="target">
+      <input type="text" />
+    </div>
+
+    <h2>N개의 데이터 테이블에 세팅</h2>
+    <button onclick="parsing3()">테이블 데이터 파싱</button>
+    <table border="1" style="border-collapse: collapse">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody id="tbodyId"></tbody>
+    </table>
+  </body>
+</html>

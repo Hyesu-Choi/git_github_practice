@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js callback</title>
+  </head>
+  <body>
+    <button onclick="basicFunction()">일반함수 호출</button>
+    <button onclick="callbackFunction1()">콜백함수 예제1</button>
+    <button onclick="callbackFunction2()">콜백함수 예제2</button>
+    <button onclick="callbackFunction3()">콜백함수 예제3</button>
+
+    <script>
+      const basicFunction = () => {
+        console.log("hello worid");
+      };
+
+      const callbackFunction1 = () => {
+        callbackTest(() => {
+          console.log("hello javascript");
+        });
+      };
+      // 콜백함수 : 다른 함수의 매개변수로 넘겨지는 함수
+      const callbackTest = (f1) => {
+        f1();
+      };
+
+      const callbackFunction2 = () => {
+        const numbers = [1, 2, 3, 4, 5];
+        // forEach, map 등 함수형프로그래밍에서 콜백함수 형식을 많이 사용
+        numbers.forEach((a) => console.log(a));
+        // js는 기본적으로 동기적으로 동작(콜백함수 포함). 싱글스레드. 장점 : 단숨함(동시성이슈x), 단점 : 성능이 느림
+        // 이러한 단점을 해결하기 위해, 비동기코드를 적극 도입입
+        // 동기적 : 한 작업이 끝나야 다음 작업이 실행. 순서대로 실행
+        // 비동기적 : 한 작업이 끝나지 않아도 다음 작업이 실행. 순서대로 실행하지 않음
+        console.log("hello python");
+      };
+
+      function callbackFunction3() {
+        // setTimeout : n초 뒤에 요청한 작업을 처리해주는 함수
+        // setTimeout : 콜백함수처리 + 비동기적으로 동작하는 대표적인 함수
+        // js에서 비동기적으로 동작하는 함수는 일반적으로 실행시간이 오래걸리는 작업(서버에 데이터 요청)
+        setTimeout(() => console.log("hello javascript"), 2000);
+        console.log("hello python");
+        // 실행순서를 보장해야 하는 상황에서 문제 발생.
+        setTimeout(() => console.log("hello javascript2"), 2000);
+        console.log("hello python2");
+      }
+    </script>
+  </body>
+</html>

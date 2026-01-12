@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js operator</title>
+    <script>
+      // 삼항연산자자
+      function biggerNum(a, b) {
+        const bigger = a > b ? a : b;
+        document.getElementById("result").innerText = bigger;
+      }
+
+      // 문자 비교
+      const compareString = () => {
+        // js에서 문자열 비교는 부등호 사용 가능
+        const st1 = "abc";
+        const st2 = "bcd";
+        st1 > st2; //false
+      };
+
+      // 형변환환
+      function convertType() {
+        let st1 = "10";
+        let st2 = "hello";
+        let num1 = Number(st1);
+        num1 = String(num1);
+        let num2 = Number(st2); // NaN
+        10 == 10; // true
+        10 == "10"; // true
+        10 === "10"; // false
+        10 === 10; // true
+
+        let v1; // undefined
+        let v2 = null; // null
+        v1 == v2; // true
+        v1 === v2; // false
+      }
+      function biggerNum2() {
+        const input1 = document.getElementById("input1").value;
+        const input2 = document.getElementById("input2").value;
+        const bigger = Number(input1) > Number(input2) ? input1 : input2;
+        document.getElementById("result2").innerText = bigger;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>삼항연산자 예시</h2>
+    <button onclick="biggerNum(10,20)">삼항연산자 결과</button>
+    <p id="result">결과값</p>
+    <button onclick="compareString()">문자비교 결과</button>
+    <button onclick="convertType()">형변환</button>
+    <button onclick="biggerNum2()">삼항연산자/형변환 활용</button>
+    <input type="text" id="input1" />
+    <input type="text" id="input2" />
+    <span id="result2">둘 중 더 큰 값</span>
+  </body>
+</html>

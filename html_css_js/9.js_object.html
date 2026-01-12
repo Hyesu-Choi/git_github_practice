@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js object</title>
+    <script>
+      // 리터럴방식 생성
+      let person1 = {
+        id: 1,
+        name: "홍길동",
+        email: "hong@naver.com",
+        age: 20,
+      };
+      person1.name = "hong2";
+      person1["email"] = "hong2@naver.com";
+      person1.password = "1234";
+      // 단축속성명 방식
+      const name = "honh3";
+      const age = 20;
+      let person2 = { name: name, age: age };
+      let person3 = { name, age };
+
+      let obj1 = { a: 1, b: 2, c: 3 };
+      let obj2 = { obj1 };
+      // 스프레드 문법 : 객체, 배열의 요소값을 모두 꺼내오는 문법
+      const obj3 = { a: 1, b: 2 };
+      const obj4 = { ...obj3, c: 4 };
+      const arr1 = [1, 2, 3];
+      const arr2 = [...arr1, 4];
+
+      // 객체접근
+      let p1 = { name: "홍길동", email: "hong@naver.com", age: 25 };
+      console.log(p1);
+      // 객체 개별요소 접근
+      console.log(p1.name);
+      //객체 개별요소 접근2
+      console.log(p1["email"]);
+
+      // Object.keys(객체명) : 객체의 key를 배열 형태로 반환
+      let arr3 = Object.keys(p1);
+      for (let i = 0; i < arr3.length; i++) {
+        p1[arr3[i]] = 10;
+      }
+
+      // 배열 생성
+      let fruits = ["사과", "배", "바나나"];
+      // 배열 요소 추가 : push
+      fruits.push("딸기");
+      // 배열 요소 꺼내기 : pop
+      fruits.pop();
+      // 배열의 접근 : 배열명[index]
+      console.log(fruits[0]);
+      //배열의 수정
+      fruits[0] = "수박";
+
+      // 함수형 프로그래밍 : forEach, map, filter, reduce
+      const nums = [1, 2, 3, 4, 5, 6];
+      // nums.forEach((a) => console.log(a));
+      const newNum1 = nums.map((a) => a * a);
+      const newNum2 = nums.filter((a) => a % 2 == 0);
+
+      // 배열 안 객체 생성
+      let arr4 = [
+        { name: "홍길동", age: 20 },
+        { name: "이순신", age: 30 },
+        { name: "강감찬", age: 40 },
+      ];
+      // 모든 객체에 email : test@naver.com 추가
+      // 방법1 : for문
+      for(int i=0; i<arr4.length; i++) {
+        arr4[i].email = "test@naver.com";
+      }
+      // 방법2.
+      const arr5 = arr4.map((a) => ({ ...a, email: "test@naver.com" }));
+      console.log(arr5);
+    </script>
+  </head>
+  <body>
+    <h2>js 객체</h2>
+    <button onclick="makeObject()">객체 생성</button>
+    <button onclick="getObject()">객체 접근</button>
+    <button>배열생성</button>
+    <button>배열 안 객체 생성</button>
+  </body>
+</html>
